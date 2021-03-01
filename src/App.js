@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import Tickets from './components/Tickets';
+import getSearchId from './functions/getSearchId';
+import './App.scss';
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    const searchId = localStorage.getItem('searchId');
+    if (!searchId) {
+      getSearchId();
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="column left-column" />
+      <div className="column right-column">
+        <Tickets />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
