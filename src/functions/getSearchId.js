@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import api from '../api';
+import api from 'api';
 
 export default async () => {
   try {

@@ -1,10 +1,10 @@
 import React, { useEffect, Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ticketsSelector } from '../../store/tickets/slice';
-import { getTickets } from '../../store/tickets/logic';
-import numberWithSpaces from '../../functions/numberWithSpaces';
-import getTimeFromMins from '../../functions/getTimeFromMins';
-import getFlightTime from '../../functions/getFlightTime';
+import { ticketsSelector } from 'store/tickets/slice';
+import { getTickets } from 'store/tickets/logic';
+import numberWithSpaces from 'functions/numberWithSpaces';
+import getTimeFromMins from 'functions/getTimeFromMins';
+import getFlightTime from 'functions/getFlightTime';
 import './styles.scss';
 
 const renderTitleStops = (stops) => {

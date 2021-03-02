@@ -5,6 +5,13 @@ module.exports = {
   env: {
     browser: true,
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+      },
+    },
+  },
   rules: {
     'import/prefer-default-export': 0,
     'import/no-cycle': 0,

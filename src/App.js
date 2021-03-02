@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import Tickets from './components/Tickets';
-import getSearchId from './functions/getSearchId';
+import Tickets from 'components/Tickets';
+import getSearchId from 'functions/getSearchId';
 import './App.scss';
 
 const App = () => {
