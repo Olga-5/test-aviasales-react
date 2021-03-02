@@ -1,10 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
 import { Provider } from 'react-redux';
 import store from 'store';
+import api from 'api';
 import App from './App';
+import './index.scss';
 // import reportWebVitals from './reportWebVitals';
+
+const { searchId } = localStorage;
+if (searchId) {
+  api.defaults.params = {};
+  api.defaults.params.searchId = searchId;
+}
 
 ReactDOM.render(
   <Provider store={store}>
