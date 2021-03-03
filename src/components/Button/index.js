@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles.scss';
 
 const Button = ({ className, type, children, onClick }) => (
   <button className={`btn ${className}`} type={type} onClick={onClick}>
