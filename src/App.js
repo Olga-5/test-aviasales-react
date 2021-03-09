@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import Tickets from 'components/Tickets';
-import Button from 'components/Button';
+import { Button, Tickets, Sort } from 'components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectListOfRecords,
@@ -13,8 +12,8 @@ import './App.scss';
 
 const App = () => {
   const dispatch = useDispatch();
-  const tickets = useSelector(selectListOfRecords);
-  const { records, valueOfRecords } = useSelector(ticketsSelector);
+  const totalTickets = useSelector(selectListOfRecords);
+  const { records, valueOfRecords, list } = useSelector(ticketsSelector);
   useEffect(() => {
     const getData = async () => {
       const { searchId } = localStorage;
@@ -25,19 +24,21 @@ const App = () => {
     };
     getData();
   }, [dispatch]);
-
   return (
     <div className="container">
       <div className="column left-column" />
       <div className="column right-column">
-        <Tickets list={tickets} />
-        <Button
-          className="ticket-list-more-btn"
-          type="button"
-          onClick={() => dispatch(moreTickets(records + valueOfRecords))}
-        >
-          Показать еще 5 билетов!
-        </Button>
+        <Sort />
+        <Tickets list={totalTickets} />
+        {list.length > records && (
+          <Button
+            className="ticket-list-more-btn"
+            type="button"
+            onClick={() => dispatch(moreTickets(records + valueOfRecords))}
+          >
+            Показать еще 5 билетов!
+          </Button>
+        )}
       </div>
     </div>
   );
